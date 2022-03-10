@@ -5,6 +5,8 @@ class Comment < ApplicationRecord
 
   # Validations
 
+  validates :reader_name, :presence => true
+
   # Scopes
 
   def to_s
