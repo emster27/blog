@@ -1,6 +1,8 @@
 class Bookmark < ApplicationRecord
   # Direct associations
 
+  belongs_to :page
+
   # Indirect associations
 
   # Validations

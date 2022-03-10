@@ -1,6 +1,9 @@
 class Page < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :dependent => :destroy
+
   has_many   :analytics,
              :dependent => :destroy
 
