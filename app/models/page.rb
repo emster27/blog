@@ -1,6 +1,9 @@
 class Page < ApplicationRecord
   # Direct associations
 
+  belongs_to :profile,
+             :foreign_key => "writer_id"
+
   has_many   :bookmarks,
              :dependent => :destroy
 
