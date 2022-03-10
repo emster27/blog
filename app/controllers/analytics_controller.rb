@@ -3,7 +3,7 @@ class AnalyticsController < ApplicationController
 
   # GET /analytics
   def index
-    @analytics = Analytic.all
+    @analytics = Analytic.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@analytics.where.not(:reader_location_latitude => nil)) do |analytic, marker|
       marker.lat analytic.reader_location_latitude
       marker.lng analytic.reader_location_longitude

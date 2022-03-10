@@ -3,7 +3,7 @@ class SettingsController < ApplicationController
 
   # GET /settings
   def index
-    @settings = Setting.all
+    @settings = Setting.page(params[:page]).per(10)
   end
 
   # GET /settings/1

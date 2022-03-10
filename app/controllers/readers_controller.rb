@@ -3,7 +3,7 @@ class ReadersController < ApplicationController
 
   # GET /readers
   def index
-    @readers = Reader.all
+    @readers = Reader.page(params[:page]).per(10)
   end
 
   # GET /readers/1

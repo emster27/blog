@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   # GET /pages
   def index
-    @pages = Page.all
+    @pages = Page.page(params[:page]).per(10)
   end
 
   # GET /pages/1

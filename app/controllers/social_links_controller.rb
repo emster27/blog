@@ -3,7 +3,7 @@ class SocialLinksController < ApplicationController
 
   # GET /social_links
   def index
-    @social_links = SocialLink.all
+    @social_links = SocialLink.page(params[:page]).per(10)
   end
 
   # GET /social_links/1
