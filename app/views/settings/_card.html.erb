@@ -27,7 +27,11 @@
 
       <dt>Profile</dt>
       <!-- Display profile_id start -->
-      <dd><%= setting.profile_id %></dd>
+      <dd>
+        <% if @setting.profile.present? %>
+          <%= link_to setting.profile, setting.profile %>
+        <% end %>
+      </dd>
       <!-- Display profile_id end -->
 
     </dl>

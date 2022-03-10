@@ -14,7 +14,11 @@
 
       <dt>Writer</dt>
       <!-- Display writer_id start -->
-      <dd><%= page.writer_id %></dd>
+      <dd>
+        <% if @page.profile.present? %>
+          <%= link_to page.profile, page.profile %>
+        <% end %>
+      </dd>
       <!-- Display writer_id end -->
 
     </dl>

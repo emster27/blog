@@ -22,7 +22,11 @@
 
       <dt>Profile</dt>
       <!-- Display profile_id start -->
-      <dd><%= social_link.profile_id %></dd>
+      <dd>
+        <% if @social_link.profile.present? %>
+          <%= link_to social_link.profile, social_link.profile %>
+        <% end %>
+      </dd>
       <!-- Display profile_id end -->
 
     </dl>

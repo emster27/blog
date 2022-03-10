@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Page</dt>
       <!-- Display page_id start -->
-      <dd><%= bookmark.page_id %></dd>
+      <dd>
+        <% if @bookmark.page.present? %>
+          <%= link_to bookmark.page, bookmark.page %>
+        <% end %>
+      </dd>
       <!-- Display page_id end -->
 
       <dt>Reader</dt>
       <!-- Display reader_id start -->
-      <dd><%= bookmark.reader_id %></dd>
+      <dd>
+        <% if @bookmark.reader.present? %>
+          <%= link_to bookmark.reader, bookmark.reader %>
+        <% end %>
+      </dd>
       <!-- Display reader_id end -->
 
     </dl>

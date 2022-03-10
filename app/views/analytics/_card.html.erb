@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Page</dt>
       <!-- Display page_id start -->
-      <dd><%= analytic.page_id %></dd>
+      <dd>
+        <% if @analytic.page.present? %>
+          <%= link_to analytic.page, analytic.page %>
+        <% end %>
+      </dd>
       <!-- Display page_id end -->
 
       <dt>Reader location</dt>
