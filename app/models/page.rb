@@ -1,4 +1,6 @@
 class Page < ApplicationRecord
+  mount_base64_uploader :hero_image, HeroImageUploader
+
   # Direct associations
 
   belongs_to :profile,

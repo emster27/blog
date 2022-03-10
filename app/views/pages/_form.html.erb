@@ -16,7 +16,7 @@
 
     <%= f.label :hero_image %>
     <!-- Input for hero_image start -->
-    <%= f.text_field :hero_image, class: hero_image_class, placeholder: "Enter hero image" %>
+    <%= f.file_field :hero_image, class: "form-control" %>
     <!-- Input for hero_image end -->
     <% if hero_image_was_invalid %>
       <% page.errors.full_messages_for(:hero_image).each do |message| %>
