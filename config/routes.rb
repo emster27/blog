@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "pages#index"
   resources :bookmarks
   resources :social_links
   resources :settings
