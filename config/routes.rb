@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "pages#index"
   resources :bookmarks
   resources :social_links
