@@ -1,0 +1,109 @@
+<% was_validated = comment.errors.any? %>
+
+<%= form_with(model: comment, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for page_id start -->
+  <div class="form-group">
+    <% page_class = "form-control" %>
+    <% page_was_invalid = comment.errors.include?(:page) %>
+
+    <% if was_validated %>
+      <% if page_was_invalid %>
+        <% page_class << " is-invalid" %>
+      <% else %>
+        <% page_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :page_id %>
+    <!-- Input for page_id start -->
+    <%= f.number_field :page_id, class: page_class, placeholder: "Enter page" %>
+    <!-- Input for page_id end -->
+    <% if page_was_invalid %>
+      <% comment.errors.full_messages_for(:page).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for page_id end -->
+  <!-- Label and input for reader_id start -->
+  <div class="form-group">
+    <% reader_class = "form-control" %>
+    <% reader_was_invalid = comment.errors.include?(:reader) %>
+
+    <% if was_validated %>
+      <% if reader_was_invalid %>
+        <% reader_class << " is-invalid" %>
+      <% else %>
+        <% reader_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :reader_id %>
+    <!-- Input for reader_id start -->
+    <%= f.number_field :reader_id, class: reader_class, placeholder: "Enter reader" %>
+    <!-- Input for reader_id end -->
+    <% if reader_was_invalid %>
+      <% comment.errors.full_messages_for(:reader).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for reader_id end -->
+  <!-- Label and input for reader_name start -->
+  <div class="form-group">
+    <% reader_name_class = "form-control" %>
+    <% reader_name_was_invalid = comment.errors.include?(:reader_name) %>
+
+    <% if was_validated %>
+      <% if reader_name_was_invalid %>
+        <% reader_name_class << " is-invalid" %>
+      <% else %>
+        <% reader_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :reader_name %>
+    <!-- Input for reader_name start -->
+    <%= f.text_field :reader_name, class: reader_name_class, placeholder: "Enter reader name" %>
+    <!-- Input for reader_name end -->
+    <% if reader_name_was_invalid %>
+      <% comment.errors.full_messages_for(:reader_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for reader_name end -->
+  <!-- Label and input for reader_email start -->
+  <div class="form-group">
+    <% reader_email_class = "form-control" %>
+    <% reader_email_was_invalid = comment.errors.include?(:reader_email) %>
+
+    <% if was_validated %>
+      <% if reader_email_was_invalid %>
+        <% reader_email_class << " is-invalid" %>
+      <% else %>
+        <% reader_email_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :reader_email %>
+    <!-- Input for reader_email start -->
+    <%= f.text_field :reader_email, class: reader_email_class, placeholder: "Enter reader email" %>
+    <!-- Input for reader_email end -->
+    <% if reader_email_was_invalid %>
+      <% comment.errors.full_messages_for(:reader_email).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for reader_email end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
