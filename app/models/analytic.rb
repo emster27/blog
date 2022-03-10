@@ -5,6 +5,8 @@ class Analytic < ApplicationRecord
 
   # Validations
 
+  validates :reader_id, :presence => true
+
   # Scopes
 
   def to_s
