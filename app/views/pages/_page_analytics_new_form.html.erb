@@ -1,42 +1,24 @@
-<!-- Form analytic start -->
 <%= form_with(model: @analytic, local: true) do |f| %>
-<!-- Form analytic end -->
 
-  <!-- Label and input for page_id start -->
-  <!-- Input for page_id start -->
   <%= f.hidden_field :page_id, value: @page.id %>
-  <!-- Input for page_id end -->
-  <!-- Label and input for page_id end -->
 
-  <!-- Label and input for reader_location start -->
   <div class="form-group">
     <%= f.label :reader_location %>
 
-    <!-- Input for reader_location start -->
     <%= f.text_field :reader_location, class: "form-control" %>
-    <!-- Input for reader_location end -->
   </div>
-  <!-- Label and input for reader_location end -->
 
-  <!-- Label and input for view_count start -->
   <div class="form-group">
     <%= f.label :view_count %>
 
-    <!-- Input for view_count start -->
     <%= f.text_field :view_count, class: "form-control" %>
-    <!-- Input for view_count end -->
   </div>
-  <!-- Label and input for view_count end -->
 
-  <!-- Label and input for reader_id start -->
   <div class="form-group">
     <%= f.label :reader_id %>
 
-    <!-- Input for reader_id start -->
     <%= f.text_field :reader_id, class: "form-control" %>
-    <!-- Input for reader_id end -->
   </div>
-  <!-- Label and input for reader_id end -->
 
   <%= f.submit "Create analytic", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

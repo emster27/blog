@@ -1,7 +1,6 @@
 <% was_validated = reader.errors.any? %>
 
 <%= form_with(model: reader, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for email start -->
   <div class="form-group">
     <% email_class = "form-control" %>
     <% email_was_invalid = reader.errors.include?(:email) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :email %>
-    <!-- Input for email start -->
     <%= f.text_field :email, class: email_class, placeholder: "Enter email" %>
-    <!-- Input for email end -->
     <% if email_was_invalid %>
       <% reader.errors.full_messages_for(:email).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for email end -->
-  <!-- Label and input for reader_name start -->
   <div class="form-group">
     <% reader_name_class = "form-control" %>
     <% reader_name_was_invalid = reader.errors.include?(:reader_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :reader_name %>
-    <!-- Input for reader_name start -->
     <%= f.text_field :reader_name, class: reader_name_class, placeholder: "Enter reader name" %>
-    <!-- Input for reader_name end -->
     <% if reader_name_was_invalid %>
       <% reader.errors.full_messages_for(:reader_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

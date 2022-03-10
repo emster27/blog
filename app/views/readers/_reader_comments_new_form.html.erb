@@ -1,42 +1,24 @@
-<!-- Form comment start -->
 <%= form_with(model: @comment, local: true) do |f| %>
-<!-- Form comment end -->
 
-  <!-- Label and input for page_id start -->
   <div class="form-group">
     <%= f.label :page_id %>
 
-    <!-- Input for page_id start -->
     <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for page_id end -->
   </div>
-  <!-- Label and input for page_id end -->
 
-  <!-- Label and input for reader_id start -->
-  <!-- Input for reader_id start -->
   <%= f.hidden_field :reader_id, value: @reader.id %>
-  <!-- Input for reader_id end -->
-  <!-- Label and input for reader_id end -->
 
-  <!-- Label and input for reader_name start -->
   <div class="form-group">
     <%= f.label :reader_name %>
 
-    <!-- Input for reader_name start -->
     <%= f.text_field :reader_name, class: "form-control" %>
-    <!-- Input for reader_name end -->
   </div>
-  <!-- Label and input for reader_name end -->
 
-  <!-- Label and input for reader_email start -->
   <div class="form-group">
     <%= f.label :reader_email %>
 
-    <!-- Input for reader_email start -->
     <%= f.text_field :reader_email, class: "form-control" %>
-    <!-- Input for reader_email end -->
   </div>
-  <!-- Label and input for reader_email end -->
 
   <%= f.submit "Create comment", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

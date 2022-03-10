@@ -6,14 +6,10 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Email</dt>
-      <!-- Display email start -->
       <dd><%= reader.email %></dd>
-      <!-- Display email end -->
 
       <dt>Reader name</dt>
-      <!-- Display reader_name start -->
       <dd><%= reader.reader_name %></dd>
-      <!-- Display reader_name end -->
 
     </dl>
 
@@ -22,21 +18,17 @@
         <%= link_to_show_or_back reader, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link reader start -->
       <div class="col">
         <%= link_to edit_reader_url(reader), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link reader end -->
 
-      <!-- Delete link reader start -->
       <div class="col">
         <%= link_to reader, method: :delete, data: { confirm: "Do you really want to delete this reader?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link reader end -->
     </div>
   </div>
 

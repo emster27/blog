@@ -1,7 +1,6 @@
 <% was_validated = profile.errors.any? %>
 
 <%= form_with(model: profile, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for email start -->
   <div class="form-group">
     <% email_class = "form-control" %>
     <% email_was_invalid = profile.errors.include?(:email) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :email %>
-    <!-- Input for email start -->
     <%= f.text_field :email, class: email_class, placeholder: "Enter email" %>
-    <!-- Input for email end -->
     <% if email_was_invalid %>
       <% profile.errors.full_messages_for(:email).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for email end -->
-  <!-- Label and input for password start -->
   <div class="form-group">
     <% password_class = "form-control" %>
     <% password_was_invalid = profile.errors.include?(:password) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :password %>
-    <!-- Input for password start -->
     <%= f.text_field :password, class: password_class, placeholder: "Enter password" %>
-    <!-- Input for password end -->
     <% if password_was_invalid %>
       <% profile.errors.full_messages_for(:password).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for password end -->
-  <!-- Label and input for account_type start -->
   <div class="form-group">
     <% account_type_class = "form-control" %>
     <% account_type_was_invalid = profile.errors.include?(:account_type) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :account_type %>
-    <!-- Input for account_type start -->
     <%= f.text_field :account_type, class: account_type_class, placeholder: "Enter account type" %>
-    <!-- Input for account_type end -->
     <% if account_type_was_invalid %>
       <% profile.errors.full_messages_for(:account_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for account_type end -->
-  <!-- Label and input for dob start -->
   <div class="form-group">
     <% dob_class = "form-control" %>
     <% dob_was_invalid = profile.errors.include?(:dob) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :dob %>
-    <!-- Input for dob start -->
     <%= f.text_field :dob, class: dob_class, placeholder: "Enter dob" %>
-    <!-- Input for dob end -->
     <% if dob_was_invalid %>
       <% profile.errors.full_messages_for(:dob).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dob end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

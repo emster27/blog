@@ -1,22 +1,12 @@
-<!-- Form bookmark start -->
 <%= form_with(model: @bookmark, local: true) do |f| %>
-<!-- Form bookmark end -->
 
-  <!-- Label and input for page_id start -->
   <div class="form-group">
     <%= f.label :page_id %>
 
-    <!-- Input for page_id start -->
     <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for page_id end -->
   </div>
-  <!-- Label and input for page_id end -->
 
-  <!-- Label and input for reader_id start -->
-  <!-- Input for reader_id start -->
   <%= f.hidden_field :reader_id, value: @reader.id %>
-  <!-- Input for reader_id end -->
-  <!-- Label and input for reader_id end -->
 
   <%= f.submit "Create bookmark", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

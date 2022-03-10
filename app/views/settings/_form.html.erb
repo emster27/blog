@@ -1,7 +1,6 @@
 <% was_validated = setting.errors.any? %>
 
 <%= form_with(model: setting, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for owner_info start -->
   <div class="form-group">
     <% owner_info_class = "form-control" %>
     <% owner_info_was_invalid = setting.errors.include?(:owner_info) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :owner_info %>
-    <!-- Input for owner_info start -->
     <%= f.text_area :owner_info, class: owner_info_class, placeholder: "Enter owner info" %>
-    <!-- Input for owner_info end -->
     <% if owner_info_was_invalid %>
       <% setting.errors.full_messages_for(:owner_info).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for owner_info end -->
-  <!-- Label and input for billing start -->
   <div class="form-group">
     <% billing_class = "form-control" %>
     <% billing_was_invalid = setting.errors.include?(:billing) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :billing %>
-    <!-- Input for billing start -->
     <%= f.text_field :billing, class: billing_class, placeholder: "Enter billing" %>
-    <!-- Input for billing end -->
     <% if billing_was_invalid %>
       <% setting.errors.full_messages_for(:billing).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for billing end -->
-  <!-- Label and input for billing_card start -->
   <div class="form-group">
     <% billing_card_class = "form-control" %>
     <% billing_card_was_invalid = setting.errors.include?(:billing_card) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :billing_card %>
-    <!-- Input for billing_card start -->
     <%= f.number_field :billing_card, class: billing_card_class, placeholder: "Enter billing card" %>
-    <!-- Input for billing_card end -->
     <% if billing_card_was_invalid %>
       <% setting.errors.full_messages_for(:billing_card).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for billing_card end -->
-  <!-- Label and input for domains start -->
   <div class="form-group">
     <% domain_class = "form-control" %>
     <% domain_was_invalid = setting.errors.include?(:domain) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :domains %>
-    <!-- Input for domains start -->
     <%= f.text_area :domains, class: domain_class, placeholder: "Enter domain" %>
-    <!-- Input for domains end -->
     <% if domain_was_invalid %>
       <% setting.errors.full_messages_for(:domain).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for domains end -->
-  <!-- Label and input for profile_id start -->
   <div class="form-group">
     <% profile_class = "form-control" %>
     <% profile_was_invalid = setting.errors.include?(:profile) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :profile_id %>
-    <!-- Input for profile_id start -->
     <%= f.collection_select :profile_id, Profile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for profile_id end -->
     <% if profile_was_invalid %>
       <% setting.errors.full_messages_for(:profile).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for profile_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = page.errors.any? %>
 
 <%= form_with(model: page, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for hero_image start -->
   <div class="form-group">
     <% hero_image_class = "form-control" %>
     <% hero_image_was_invalid = page.errors.include?(:hero_image) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :hero_image %>
-    <!-- Input for hero_image start -->
     <%= f.file_field :hero_image, class: "form-control" %>
-    <!-- Input for hero_image end -->
     <% if hero_image_was_invalid %>
       <% page.errors.full_messages_for(:hero_image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for hero_image end -->
-  <!-- Label and input for writer_id start -->
   <div class="form-group">
     <% writer_class = "form-control" %>
     <% writer_was_invalid = page.errors.include?(:writer) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :writer_id %>
-    <!-- Input for writer_id start -->
     <%= f.collection_select :writer_id, Profile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for writer_id end -->
     <% if writer_was_invalid %>
       <% page.errors.full_messages_for(:writer).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for writer_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

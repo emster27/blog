@@ -1,7 +1,6 @@
 <% was_validated = analytic.errors.any? %>
 
 <%= form_with(model: analytic, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for page_id start -->
   <div class="form-group">
     <% page_class = "form-control" %>
     <% page_was_invalid = analytic.errors.include?(:page) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :page_id %>
-    <!-- Input for page_id start -->
     <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for page_id end -->
     <% if page_was_invalid %>
       <% analytic.errors.full_messages_for(:page).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for page_id end -->
-  <!-- Label and input for reader_location start -->
   <div class="form-group">
     <% reader_location_class = "form-control" %>
     <% reader_location_was_invalid = analytic.errors.include?(:reader_location) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :reader_location %>
-    <!-- Input for reader_location start -->
     <%= f.text_field :reader_location, class: reader_location_class, placeholder: "Enter reader location" %>
-    <!-- Input for reader_location end -->
     <% if reader_location_was_invalid %>
       <% analytic.errors.full_messages_for(:reader_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_location end -->
-  <!-- Label and input for view_count start -->
   <div class="form-group">
     <% view_count_class = "form-control" %>
     <% view_count_was_invalid = analytic.errors.include?(:view_count) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :view_count %>
-    <!-- Input for view_count start -->
     <%= f.number_field :view_count, class: view_count_class, placeholder: "Enter view count" %>
-    <!-- Input for view_count end -->
     <% if view_count_was_invalid %>
       <% analytic.errors.full_messages_for(:view_count).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for view_count end -->
-  <!-- Label and input for reader_id start -->
   <div class="form-group">
     <% reader_class = "form-control" %>
     <% reader_was_invalid = analytic.errors.include?(:reader) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :reader_id %>
-    <!-- Input for reader_id start -->
     <%= f.number_field :reader_id, class: reader_class, placeholder: "Enter reader" %>
-    <!-- Input for reader_id end -->
     <% if reader_was_invalid %>
       <% analytic.errors.full_messages_for(:reader).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

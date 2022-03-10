@@ -6,32 +6,24 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Page</dt>
-      <!-- Display page_id start -->
       <dd>
         <% if @analytic.page.present? %>
           <%= link_to analytic.page, analytic.page %>
         <% end %>
       </dd>
-      <!-- Display page_id end -->
 
       <dt>Reader location</dt>
-      <!-- Display reader_location start -->
       <dd>
         <div>
           <%= render partial: "analytics/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display reader_location end -->
 
       <dt>View count</dt>
-      <!-- Display view_count start -->
       <dd><%= analytic.view_count %></dd>
-      <!-- Display view_count end -->
 
       <dt>Reader</dt>
-      <!-- Display reader_id start -->
       <dd><%= analytic.reader_id %></dd>
-      <!-- Display reader_id end -->
 
     </dl>
 
@@ -40,21 +32,17 @@
         <%= link_to_show_or_back analytic, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link analytic start -->
       <div class="col">
         <%= link_to edit_analytic_url(analytic), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link analytic end -->
 
-      <!-- Delete link analytic start -->
       <div class="col">
         <%= link_to analytic, method: :delete, data: { confirm: "Do you really want to delete this analytic?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link analytic end -->
     </div>
   </div>
 

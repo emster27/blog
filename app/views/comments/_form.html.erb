@@ -1,7 +1,6 @@
 <% was_validated = comment.errors.any? %>
 
 <%= form_with(model: comment, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for page_id start -->
   <div class="form-group">
     <% page_class = "form-control" %>
     <% page_was_invalid = comment.errors.include?(:page) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :page_id %>
-    <!-- Input for page_id start -->
     <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for page_id end -->
     <% if page_was_invalid %>
       <% comment.errors.full_messages_for(:page).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for page_id end -->
-  <!-- Label and input for reader_id start -->
   <div class="form-group">
     <% reader_class = "form-control" %>
     <% reader_was_invalid = comment.errors.include?(:reader) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :reader_id %>
-    <!-- Input for reader_id start -->
     <%= f.collection_select :reader_id, Reader.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for reader_id end -->
     <% if reader_was_invalid %>
       <% comment.errors.full_messages_for(:reader).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_id end -->
-  <!-- Label and input for reader_name start -->
   <div class="form-group">
     <% reader_name_class = "form-control" %>
     <% reader_name_was_invalid = comment.errors.include?(:reader_name) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :reader_name %>
-    <!-- Input for reader_name start -->
     <%= f.text_field :reader_name, class: reader_name_class, placeholder: "Enter reader name" %>
-    <!-- Input for reader_name end -->
     <% if reader_name_was_invalid %>
       <% comment.errors.full_messages_for(:reader_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_name end -->
-  <!-- Label and input for reader_email start -->
   <div class="form-group">
     <% reader_email_class = "form-control" %>
     <% reader_email_was_invalid = comment.errors.include?(:reader_email) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :reader_email %>
-    <!-- Input for reader_email start -->
     <%= f.text_field :reader_email, class: reader_email_class, placeholder: "Enter reader email" %>
-    <!-- Input for reader_email end -->
     <% if reader_email_was_invalid %>
       <% comment.errors.full_messages_for(:reader_email).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reader_email end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
