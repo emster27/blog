@@ -7,6 +7,8 @@ class ReaderResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   # Indirect associations
 
 end
