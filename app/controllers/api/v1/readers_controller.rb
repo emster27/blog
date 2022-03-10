@@ -13,7 +13,7 @@ class Api::V1::ReadersController < Api::V1::GraphitiController
     reader = ReaderResource.build(params)
 
     if reader.save
-      render jsonapi: reader, status: 201
+      render jsonapi: reader, status: :created
     else
       render jsonapi_errors: reader
     end
@@ -33,7 +33,7 @@ class Api::V1::ReadersController < Api::V1::GraphitiController
     reader = ReaderResource.find(params)
 
     if reader.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: reader
     end

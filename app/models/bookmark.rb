@@ -8,8 +8,8 @@ class Bookmark < ApplicationRecord
   # Indirect associations
 
   has_one    :analytic,
-             :through => :page,
-             :source => :analytics
+             through: :page,
+             source: :analytics
 
   # Validations
 
@@ -18,5 +18,4 @@ class Bookmark < ApplicationRecord
   def to_s
     page.to_s
   end
-
 end

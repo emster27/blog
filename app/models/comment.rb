@@ -9,12 +9,11 @@ class Comment < ApplicationRecord
 
   # Validations
 
-  validates :reader_name, :presence => true
+  validates :reader_name, presence: true
 
   # Scopes
 
   def to_s
     page.to_s
   end
-
 end

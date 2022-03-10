@@ -17,5 +17,4 @@ class ProfileResource < ApplicationResource
   has_many   :social_links
 
   # Indirect associations
-
 end

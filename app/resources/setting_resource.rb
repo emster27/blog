@@ -13,5 +13,4 @@ class SettingResource < ApplicationResource
   belongs_to :profile
 
   # Indirect associations
-
 end

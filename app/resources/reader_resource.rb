@@ -12,5 +12,4 @@ class ReaderResource < ApplicationResource
   has_many   :comments
 
   # Indirect associations
-
 end

@@ -1,15 +1,14 @@
 class SettingsController < ApplicationController
-  before_action :set_setting, only: [:show, :edit, :update, :destroy]
+  before_action :set_setting, only: %i[show edit update destroy]
 
   # GET /settings
   def index
     @q = Setting.ransack(params[:q])
-    @settings = @q.result(:distinct => true).includes(:profile).page(params[:page]).per(10)
+    @settings = @q.result(distinct: true).includes(:profile).page(params[:page]).per(10)
   end
 
   # GET /settings/1
-  def show
-  end
+  def show; end
 
   # GET /settings/new
   def new
@@ -17,17 +16,16 @@ class SettingsController < ApplicationController
   end
 
   # GET /settings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /settings
   def create
     @setting = Setting.new(setting_params)
 
     if @setting.save
-      message = 'Setting was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Setting was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @setting, notice: message
       end
@@ -39,7 +37,7 @@ class SettingsController < ApplicationController
   # PATCH/PUT /settings/1
   def update
     if @setting.update(setting_params)
-      redirect_to @setting, notice: 'Setting was successfully updated.'
+      redirect_to @setting, notice: "Setting was successfully updated."
     else
       render :edit
     end
@@ -49,22 +47,23 @@ class SettingsController < ApplicationController
   def destroy
     @setting.destroy
     message = "Setting was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to settings_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_setting
-      @setting = Setting.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def setting_params
-      params.require(:setting).permit(:owner_info, :billing, :billing_card, :domains, :profile_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_setting
+    @setting = Setting.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def setting_params
+    params.require(:setting).permit(:owner_info, :billing, :billing_card,
+                                    :domains, :profile_id)
+  end
 end

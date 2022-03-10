@@ -13,7 +13,7 @@ class Api::V1::PagesController < Api::V1::GraphitiController
     page = PageResource.build(params)
 
     if page.save
-      render jsonapi: page, status: 201
+      render jsonapi: page, status: :created
     else
       render jsonapi_errors: page
     end
@@ -33,7 +33,7 @@ class Api::V1::PagesController < Api::V1::GraphitiController
     page = PageResource.find(params)
 
     if page.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: page
     end

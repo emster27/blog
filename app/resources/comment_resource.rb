@@ -14,5 +14,4 @@ class CommentResource < ApplicationResource
   belongs_to :page
 
   # Indirect associations
-
 end

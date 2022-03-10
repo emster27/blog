@@ -12,5 +12,4 @@ class Setting < ApplicationRecord
   def to_s
     owner_info
   end
-
 end

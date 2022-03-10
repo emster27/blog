@@ -13,7 +13,7 @@ class Api::V1::AnalyticsController < Api::V1::GraphitiController
     analytic = AnalyticResource.build(params)
 
     if analytic.save
-      render jsonapi: analytic, status: 201
+      render jsonapi: analytic, status: :created
     else
       render jsonapi_errors: analytic
     end
@@ -33,7 +33,7 @@ class Api::V1::AnalyticsController < Api::V1::GraphitiController
     analytic = AnalyticResource.find(params)
 
     if analytic.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: analytic
     end

@@ -2,21 +2,20 @@ class Reader < ApplicationRecord
   # Direct associations
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   # Validations
 
-  validates :reader_name, :presence => true
+  validates :reader_name, presence: true
 
   # Scopes
 
   def to_s
     email
   end
-
 end

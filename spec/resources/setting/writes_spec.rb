@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe SettingResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'settings',
-          attributes: { }
-        }
+          type: "settings",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe SettingResource, type: :resource do
       SettingResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Setting.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Setting.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:setting) { create(:setting) }
 
     let(:payload) do
       {
         data: {
           id: setting.id.to_s,
-          type: 'settings',
-          attributes: { } # Todo!
-        }
+          type: "settings",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe SettingResource, type: :resource do
       SettingResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { setting.reload.updated_at }
+      end.to change { setting.reload.updated_at }
       # .and change { setting.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:setting) { create(:setting) }
 
     let(:instance) do
       SettingResource.find(id: setting.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Setting.count }.by(-1)
+      end.to change { Setting.count }.by(-1)
     end
   end
 end

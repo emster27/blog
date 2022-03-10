@@ -12,5 +12,4 @@ class SocialLinkResource < ApplicationResource
   belongs_to :profile
 
   # Indirect associations
-
 end

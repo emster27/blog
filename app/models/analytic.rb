@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Analytic < ApplicationRecord
   before_validation :geocode_reader_location
 
   def geocode_reader_location
-    if self.reader_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.reader_location)}"
+    if reader_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(reader_location)}"
 
       raw_data = open(url).read
 
@@ -26,19 +26,18 @@ class Analytic < ApplicationRecord
   # Indirect associations
 
   has_one    :bookmark,
-             :through => :page,
-             :source => :bookmarks
+             through: :page,
+             source: :bookmarks
 
   # Validations
 
-  validates :page_id, :presence => true
+  validates :page_id, presence: true
 
-  validates :reader_id, :presence => true
+  validates :reader_id, presence: true
 
   # Scopes
 
   def to_s
     page.to_s
   end
-
 end

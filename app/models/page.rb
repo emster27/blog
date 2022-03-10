@@ -4,16 +4,16 @@ class Page < ApplicationRecord
   # Direct associations
 
   belongs_to :profile,
-             :foreign_key => "writer_id"
+             foreign_key: "writer_id"
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :analytics,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -24,5 +24,4 @@ class Page < ApplicationRecord
   def to_s
     created_at
   end
-
 end

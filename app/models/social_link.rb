@@ -7,12 +7,11 @@ class SocialLink < ApplicationRecord
 
   # Validations
 
-  validates :password, :presence => true
+  validates :password, presence: true
 
   # Scopes
 
   def to_s
     username
   end
-
 end

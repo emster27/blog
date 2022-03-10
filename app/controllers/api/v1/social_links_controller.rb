@@ -13,7 +13,7 @@ class Api::V1::SocialLinksController < Api::V1::GraphitiController
     social_link = SocialLinkResource.build(params)
 
     if social_link.save
-      render jsonapi: social_link, status: 201
+      render jsonapi: social_link, status: :created
     else
       render jsonapi_errors: social_link
     end
@@ -33,7 +33,7 @@ class Api::V1::SocialLinksController < Api::V1::GraphitiController
     social_link = SocialLinkResource.find(params)
 
     if social_link.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: social_link
     end

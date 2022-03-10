@@ -13,7 +13,7 @@ class Api::V1::SettingsController < Api::V1::GraphitiController
     setting = SettingResource.build(params)
 
     if setting.save
-      render jsonapi: setting, status: 201
+      render jsonapi: setting, status: :created
     else
       render jsonapi_errors: setting
     end
@@ -33,7 +33,7 @@ class Api::V1::SettingsController < Api::V1::GraphitiController
     setting = SettingResource.find(params)
 
     if setting.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: setting
     end
