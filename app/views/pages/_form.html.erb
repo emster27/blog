@@ -42,7 +42,7 @@
 
     <%= f.label :writer_id %>
     <!-- Input for writer_id start -->
-    <%= f.number_field :writer_id, class: writer_class, placeholder: "Enter writer" %>
+    <%= f.collection_select :writer_id, Profile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for writer_id end -->
     <% if writer_was_invalid %>
       <% page.errors.full_messages_for(:writer).each do |message| %>
