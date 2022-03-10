@@ -1,6 +1,9 @@
 class Profile < ApplicationRecord
   # Direct associations
 
+  has_many   :settings,
+             :dependent => :destroy
+
   has_many   :pages,
              :foreign_key => "writer_id",
              :dependent => :destroy
