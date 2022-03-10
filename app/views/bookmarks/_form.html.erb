@@ -16,7 +16,7 @@
 
     <%= f.label :page_id %>
     <!-- Input for page_id start -->
-    <%= f.number_field :page_id, class: page_class, placeholder: "Enter page" %>
+    <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for page_id end -->
     <% if page_was_invalid %>
       <% bookmark.errors.full_messages_for(:page).each do |message| %>

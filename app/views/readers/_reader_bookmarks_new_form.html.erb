@@ -7,7 +7,7 @@
     <%= f.label :page_id %>
 
     <!-- Input for page_id start -->
-    <%= f.text_field :page_id, class: "form-control" %>
+    <%= f.collection_select :page_id, Page.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for page_id end -->
   </div>
   <!-- Label and input for page_id end -->
