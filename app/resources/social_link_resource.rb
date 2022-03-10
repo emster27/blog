@@ -9,6 +9,8 @@ class SocialLinkResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :profile
+
   # Indirect associations
 
 end
