@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :readers
   resources :profiles
   resources :analytics
   resources :comments
