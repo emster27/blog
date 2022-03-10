@@ -9,6 +9,9 @@ class ProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :pages,
+             foreign_key: :writer_id
+
   has_many   :social_links
 
   # Indirect associations

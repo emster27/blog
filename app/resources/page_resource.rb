@@ -7,6 +7,9 @@ class PageResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :profile,
+             foreign_key: :writer_id
+
   has_many   :bookmarks
 
   has_many   :analytics
