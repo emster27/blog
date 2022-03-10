@@ -42,7 +42,7 @@
 
     <%= f.label :reader_id %>
     <!-- Input for reader_id start -->
-    <%= f.number_field :reader_id, class: reader_class, placeholder: "Enter reader" %>
+    <%= f.collection_select :reader_id, Reader.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for reader_id end -->
     <% if reader_was_invalid %>
       <% comment.errors.full_messages_for(:reader).each do |message| %>
