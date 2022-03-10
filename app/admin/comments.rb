@@ -1,5 +1,7 @@
 ActiveAdmin.register Comment do
 
+ permit_params :page_id, :reader_id, :reader_name, :reader_email
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
