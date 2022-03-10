@@ -13,4 +13,5 @@ class AnalyticResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :bookmark
 end

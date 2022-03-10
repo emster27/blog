@@ -13,4 +13,5 @@ class BookmarkResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :analytic
 end
