@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Setting #<%= setting.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Owner info</dt>
+      <!-- Display owner_info start -->
+      <dd><%= setting.owner_info %></dd>
+      <!-- Display owner_info end -->
+
+      <dt>Billing</dt>
+      <!-- Display billing start -->
+      <dd><%= setting.billing %></dd>
+      <!-- Display billing end -->
+
+      <dt>Billing card</dt>
+      <!-- Display billing_card start -->
+      <dd><%= setting.billing_card %></dd>
+      <!-- Display billing_card end -->
+
+      <dt>Domains</dt>
+      <!-- Display domains start -->
+      <dd><%= setting.domains %></dd>
+      <!-- Display domains end -->
+
+      <dt>Profile</dt>
+      <!-- Display profile_id start -->
+      <dd><%= setting.profile_id %></dd>
+      <!-- Display profile_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back setting, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link setting start -->
+      <div class="col">
+        <%= link_to edit_setting_url(setting), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link setting end -->
+
+      <!-- Delete link setting start -->
+      <div class="col">
+        <%= link_to setting, method: :delete, data: { confirm: "Do you really want to delete this setting?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link setting end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(setting.updated_at) %> ago
+  </div>
+</div>
