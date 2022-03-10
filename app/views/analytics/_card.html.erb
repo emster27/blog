@@ -12,7 +12,11 @@
 
       <dt>Reader location</dt>
       <!-- Display reader_location start -->
-      <dd><%= analytic.reader_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "analytics/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display reader_location end -->
 
       <dt>View count</dt>
