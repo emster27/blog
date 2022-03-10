@@ -1,6 +1,8 @@
 class SocialLink < ApplicationRecord
   # Direct associations
 
+  belongs_to :profile
+
   # Indirect associations
 
   # Validations
