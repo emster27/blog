@@ -1,0 +1,22 @@
+<!-- Form page start -->
+<%= form_with(model: @page, local: true) do |f| %>
+<!-- Form page end -->
+
+  <!-- Label and input for hero_image start -->
+  <div class="form-group">
+    <%= f.label :hero_image %>
+
+    <!-- Input for hero_image start -->
+    <%= f.text_field :hero_image, class: "form-control" %>
+    <!-- Input for hero_image end -->
+  </div>
+  <!-- Label and input for hero_image end -->
+
+  <!-- Label and input for writer_id start -->
+  <!-- Input for writer_id start -->
+  <%= f.hidden_field :writer_id, value: @profile.id %>
+  <!-- Input for writer_id end -->
+  <!-- Label and input for writer_id end -->
+
+  <%= f.submit "Create page", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

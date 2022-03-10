@@ -1,0 +1,42 @@
+<!-- Form social_link start -->
+<%= form_with(model: @social_link, local: true) do |f| %>
+<!-- Form social_link end -->
+
+  <!-- Label and input for username start -->
+  <div class="form-group">
+    <%= f.label :username %>
+
+    <!-- Input for username start -->
+    <%= f.text_field :username, class: "form-control" %>
+    <!-- Input for username end -->
+  </div>
+  <!-- Label and input for username end -->
+
+  <!-- Label and input for medium start -->
+  <div class="form-group">
+    <%= f.label :medium %>
+
+    <!-- Input for medium start -->
+    <%= f.text_field :medium, class: "form-control" %>
+    <!-- Input for medium end -->
+  </div>
+  <!-- Label and input for medium end -->
+
+  <!-- Label and input for password start -->
+  <div class="form-group">
+    <%= f.label :password %>
+
+    <!-- Input for password start -->
+    <%= f.text_field :password, class: "form-control" %>
+    <!-- Input for password end -->
+  </div>
+  <!-- Label and input for password end -->
+
+  <!-- Label and input for profile_id start -->
+  <!-- Input for profile_id start -->
+  <%= f.hidden_field :profile_id, value: @profile.id %>
+  <!-- Input for profile_id end -->
+  <!-- Label and input for profile_id end -->
+
+  <%= f.submit "Create social link", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

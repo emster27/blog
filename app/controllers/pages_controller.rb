@@ -8,6 +8,9 @@ class PagesController < ApplicationController
 
   # GET /pages/1
   def show
+    @bookmark = Bookmark.new
+    @analytic = Analytic.new
+    @comment = Comment.new
   end
 
   # GET /pages/new
@@ -24,7 +27,12 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to @page, notice: 'Page was successfully created.'
+      message = 'Page was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @page, notice: message
+      end
     else
       render :new
     end

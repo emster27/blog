@@ -8,6 +8,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    @setting = Setting.new
+    @page = Page.new
+    @social_link = SocialLink.new
   end
 
   # GET /profiles/new

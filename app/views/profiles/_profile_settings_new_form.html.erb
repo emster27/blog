@@ -1,0 +1,50 @@
+<!-- Form setting start -->
+<%= form_with(model: @setting, local: true) do |f| %>
+<!-- Form setting end -->
+
+  <!-- Label and input for owner_info start -->
+  <div class="form-group">
+    <%= f.label :owner_info %>
+    <!-- Input for owner_info start -->
+    <%= f.text_area :owner_info, rows: "3", class: "form-control" %>
+    <!-- Input for owner_info end -->
+  </div>
+  <!-- Label and input for owner_info end -->
+
+  <!-- Label and input for billing start -->
+  <div class="form-group">
+    <%= f.label :billing %>
+
+    <!-- Input for billing start -->
+    <%= f.text_field :billing, class: "form-control" %>
+    <!-- Input for billing end -->
+  </div>
+  <!-- Label and input for billing end -->
+
+  <!-- Label and input for billing_card start -->
+  <div class="form-group">
+    <%= f.label :billing_card %>
+
+    <!-- Input for billing_card start -->
+    <%= f.text_field :billing_card, class: "form-control" %>
+    <!-- Input for billing_card end -->
+  </div>
+  <!-- Label and input for billing_card end -->
+
+  <!-- Label and input for domains start -->
+  <div class="form-group">
+    <%= f.label :domains %>
+    <!-- Input for domains start -->
+    <%= f.text_area :domains, rows: "3", class: "form-control" %>
+    <!-- Input for domains end -->
+  </div>
+  <!-- Label and input for domains end -->
+
+  <!-- Label and input for profile_id start -->
+  <!-- Input for profile_id start -->
+  <%= f.hidden_field :profile_id, value: @profile.id %>
+  <!-- Input for profile_id end -->
+  <!-- Label and input for profile_id end -->
+
+  <%= f.submit "Create setting", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

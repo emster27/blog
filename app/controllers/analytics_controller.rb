@@ -24,7 +24,12 @@ class AnalyticsController < ApplicationController
     @analytic = Analytic.new(analytic_params)
 
     if @analytic.save
-      redirect_to @analytic, notice: 'Analytic was successfully created.'
+      message = 'Analytic was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @analytic, notice: message
+      end
     else
       render :new
     end

@@ -24,7 +24,12 @@ class SettingsController < ApplicationController
     @setting = Setting.new(setting_params)
 
     if @setting.save
-      redirect_to @setting, notice: 'Setting was successfully created.'
+      message = 'Setting was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @setting, notice: message
+      end
     else
       render :new
     end

@@ -8,6 +8,8 @@ class ReadersController < ApplicationController
 
   # GET /readers/1
   def show
+    @bookmark = Bookmark.new
+    @comment = Comment.new
   end
 
   # GET /readers/new

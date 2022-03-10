@@ -24,7 +24,12 @@ class SocialLinksController < ApplicationController
     @social_link = SocialLink.new(social_link_params)
 
     if @social_link.save
-      redirect_to @social_link, notice: 'Social link was successfully created.'
+      message = 'SocialLink was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @social_link, notice: message
+      end
     else
       render :new
     end
