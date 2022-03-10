@@ -5,6 +5,10 @@ class Analytic < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :bookmark,
+             :through => :page,
+             :source => :bookmarks
+
   # Validations
 
   validates :page_id, :presence => true
