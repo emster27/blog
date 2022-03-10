@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   # GET /pages
   def index
-    @pages = Page.page(params[:page]).per(10)
+    @q = Page.ransack(params[:q])
+    @pages = @q.result(:distinct => true).includes(:comments, :analytics, :bookmarks, :profile).page(params[:page]).per(10)
   end
 
   # GET /pages/1

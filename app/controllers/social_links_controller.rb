@@ -3,7 +3,8 @@ class SocialLinksController < ApplicationController
 
   # GET /social_links
   def index
-    @social_links = SocialLink.page(params[:page]).per(10)
+    @q = SocialLink.ransack(params[:q])
+    @social_links = @q.result(:distinct => true).includes(:profile).page(params[:page]).per(10)
   end
 
   # GET /social_links/1

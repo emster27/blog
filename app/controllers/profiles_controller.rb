@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   def index
-    @profiles = Profile.page(params[:page]).per(10)
+    @q = Profile.ransack(params[:q])
+    @profiles = @q.result(:distinct => true).includes(:social_links, :pages, :settings).page(params[:page]).per(10)
   end
 
   # GET /profiles/1

@@ -3,7 +3,8 @@ class ReadersController < ApplicationController
 
   # GET /readers
   def index
-    @readers = Reader.page(params[:page]).per(10)
+    @q = Reader.ransack(params[:q])
+    @readers = @q.result(:distinct => true).includes(:comments, :bookmarks).page(params[:page]).per(10)
   end
 
   # GET /readers/1
