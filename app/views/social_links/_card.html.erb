@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Social Link #<%= social_link.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Username</dt>
+      <!-- Display username start -->
+      <dd><%= social_link.username %></dd>
+      <!-- Display username end -->
+
+      <dt>Medium</dt>
+      <!-- Display medium start -->
+      <dd><%= social_link.medium %></dd>
+      <!-- Display medium end -->
+
+      <dt>Password</dt>
+      <!-- Display password start -->
+      <dd><%= social_link.password %></dd>
+      <!-- Display password end -->
+
+      <dt>Profile</dt>
+      <!-- Display profile_id start -->
+      <dd><%= social_link.profile_id %></dd>
+      <!-- Display profile_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back social_link, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link social_link start -->
+      <div class="col">
+        <%= link_to edit_social_link_url(social_link), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link social_link end -->
+
+      <!-- Delete link social_link start -->
+      <div class="col">
+        <%= link_to social_link, method: :delete, data: { confirm: "Do you really want to delete this social_link?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link social_link end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(social_link.updated_at) %> ago
+  </div>
+</div>
