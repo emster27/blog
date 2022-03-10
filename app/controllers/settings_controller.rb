@@ -1,24 +1,19 @@
 class SettingsController < ApplicationController
   before_action :set_setting, only: %i[show edit update destroy]
 
-  # GET /settings
   def index
     @q = Setting.ransack(params[:q])
     @settings = @q.result(distinct: true).includes(:profile).page(params[:page]).per(10)
   end
 
-  # GET /settings/1
   def show; end
 
-  # GET /settings/new
   def new
     @setting = Setting.new
   end
 
-  # GET /settings/1/edit
   def edit; end
 
-  # POST /settings
   def create
     @setting = Setting.new(setting_params)
 
@@ -34,7 +29,6 @@ class SettingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /settings/1
   def update
     if @setting.update(setting_params)
       redirect_to @setting, notice: "Setting was successfully updated."
@@ -43,7 +37,6 @@ class SettingsController < ApplicationController
     end
   end
 
-  # DELETE /settings/1
   def destroy
     @setting.destroy
     message = "Setting was successfully deleted."
@@ -56,12 +49,10 @@ class SettingsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_setting
     @setting = Setting.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def setting_params
     params.require(:setting).permit(:owner_info, :billing, :billing_card,
                                     :domains, :profile_id)
