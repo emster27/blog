@@ -2,11 +2,7 @@ require "rails_helper"
 
 RSpec.describe Profile, type: :model do
   describe "Direct Associations" do
-    it { should have_many(:settings) }
-
     it { should have_many(:pages) }
-
-    it { should have_many(:social_links) }
   end
 
   describe "InDirect Associations" do
