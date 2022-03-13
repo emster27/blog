@@ -62,51 +62,6 @@
     <%= f.text_field :social_links_username_cont, :class => "form-control", :placeholder => "Social links username contains" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :created_at, "Page Created at" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <div class='input-group date' id='pagesgteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :pages_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Page Created at greater than or equal to", :data => {:target => '#pagesgteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#pagesgteqcreated_atPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-
-      <div class='col-md-6'>
-        <div class='input-group date' id='pageslteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :pages_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Page Created at less than or equal to", :data => {:target => '#pageslteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#pageslteqcreated_atPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript">
-      $(function () {
-          $('#pagesgteqcreated_atPicker').datetimepicker({
-              format: 'YYYY-MM-DD hh:mm:SS'
-          });
-          $('#pageslteqcreated_atPicker').datetimepicker({
-              useCurrent: false,
-              format: 'YYYY-MM-DD hh:mm:SS'
-          });
-          $('#pagesgteqcreated_atPicker').on("dp.change", function (e) {
-              $('#pageslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-          });
-          $('#pageslteqcreated_atPicker').on("dp.change", function (e) {
-              $('#pagesgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-          });
-      });
-  </script>
-
-  <div class="form-group">
-    <%= f.label :settings_owner_info_cont, "Settings owner_info contains" %>
-    <%= f.text_field :settings_owner_info_cont, :class => "form-control", :placeholder => "Settings owner_info contains" %>
-  </div>
-
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 

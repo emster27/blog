@@ -2,6 +2,21 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
+    <%= f.label :comment_cont, "Comment contains" %>
+    <%= f.text_field :comment_cont, :class => "form-control", :placeholder => "Comment contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :page_content_cont, "Page content contains" %>
+    <%= f.text_field :page_content_cont, :class => "form-control", :placeholder => "Page content contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :page_name_cont, "Page name contains" %>
+    <%= f.text_field :page_name_cont, :class => "form-control", :placeholder => "Page name contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :created_at, "Created at" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
@@ -43,8 +58,8 @@
 
 
   <div class="form-group">
-    <%= f.label :profile_email_cont, "Profile email contains" %>
-    <%= f.text_field :profile_email_cont, :class => "form-control", :placeholder => "Profile email contains" %>
+    <%= f.label :comments_reader_name_cont, "Comments reader_name contains" %>
+    <%= f.text_field :comments_reader_name_cont, :class => "form-control", :placeholder => "Comments reader_name contains" %>
   </div>
 
 

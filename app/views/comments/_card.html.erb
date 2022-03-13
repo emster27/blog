@@ -5,25 +5,21 @@
 
   <div class="card-body">
     <dl class="mb-1">
+      <dt>Reader name</dt>
+      <dd><%= comment.reader_name %></dd>
+
+      <dt>Reader email</dt>
+      <dd><%= comment.reader_email %></dd>
+
+      <dt>Comment</dt>
+      <dd><%= comment.comment %></dd>
+
       <dt>Page</dt>
       <dd>
         <% if @comment.page.present? %>
           <%= link_to comment.page, comment.page %>
         <% end %>
       </dd>
-
-      <dt>Reader</dt>
-      <dd>
-        <% if @comment.reader.present? %>
-          <%= link_to comment.reader, comment.reader %>
-        <% end %>
-      </dd>
-
-      <dt>Reader name</dt>
-      <dd><%= comment.reader_name %></dd>
-
-      <dt>Reader email</dt>
-      <dd><%= comment.reader_email %></dd>
 
     </dl>
 

@@ -3,14 +3,13 @@ class PagesController < ApplicationController
 
   def index
     @q = Page.ransack(params[:q])
-    @pages = @q.result(distinct: true).includes(:comments, :analytics,
-                                                :bookmarks, :profile).page(params[:page]).per(10)
+    @pages = @q.result(distinct: true).includes(:bookmarks,
+                                                :comments).page(params[:page]).per(10)
   end
 
   def show
-    @bookmark = Bookmark.new
-    @analytic = Analytic.new
     @comment = Comment.new
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -23,12 +22,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      message = "Page was successfully created."
-      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referer, notice: message
-      else
-        redirect_to @page, notice: message
-      end
+      redirect_to @page, notice: "Page was successfully created."
     else
       render :new
     end
@@ -44,12 +38,7 @@ class PagesController < ApplicationController
 
   def destroy
     @page.destroy
-    message = "Page was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referer, notice: message
-    else
-      redirect_to pages_url, notice: message
-    end
+    redirect_to pages_url, notice: "Page was successfully destroyed."
   end
 
   private
@@ -59,6 +48,7 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:hero_image, :writer_id)
+    params.require(:page).permit(:hero_image, :page_name, :page_content,
+                                 :comment)
   end
 end
