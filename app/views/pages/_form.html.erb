@@ -24,21 +24,65 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% writer_class = "form-control" %>
-    <% writer_was_invalid = page.errors.include?(:writer) %>
+    <% page_name_class = "form-control" %>
+    <% page_name_was_invalid = page.errors.include?(:page_name) %>
 
     <% if was_validated %>
-      <% if writer_was_invalid %>
-        <% writer_class << " is-invalid" %>
+      <% if page_name_was_invalid %>
+        <% page_name_class << " is-invalid" %>
       <% else %>
-        <% writer_class << " is-valid" %>
+        <% page_name_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :writer_id %>
-    <%= f.collection_select :writer_id, Profile.all, :id, :to_s, {}, class: "form-control" %>
-    <% if writer_was_invalid %>
-      <% page.errors.full_messages_for(:writer).each do |message| %>
+    <%= f.label :page_name %>
+    <%= f.text_area :page_name, class: page_name_class, placeholder: "Enter page name" %>
+    <% if page_name_was_invalid %>
+      <% page.errors.full_messages_for(:page_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% page_content_class = "form-control" %>
+    <% page_content_was_invalid = page.errors.include?(:page_content) %>
+
+    <% if was_validated %>
+      <% if page_content_was_invalid %>
+        <% page_content_class << " is-invalid" %>
+      <% else %>
+        <% page_content_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :page_content %>
+    <%= f.text_area :page_content, class: page_content_class, placeholder: "Enter page content" %>
+    <% if page_content_was_invalid %>
+      <% page.errors.full_messages_for(:page_content).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% comment_class = "form-control" %>
+    <% comment_was_invalid = page.errors.include?(:comment) %>
+
+    <% if was_validated %>
+      <% if comment_was_invalid %>
+        <% comment_class << " is-invalid" %>
+      <% else %>
+        <% comment_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :comment %>
+    <%= f.text_field :comment, class: comment_class, placeholder: "Enter comment" %>
+    <% if comment_was_invalid %>
+      <% page.errors.full_messages_for(:comment).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

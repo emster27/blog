@@ -3,18 +3,15 @@ class PageResource < ApplicationResource
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :hero_image, :string
-  attribute :writer_id, :integer
+  attribute :page_name, :string
+  attribute :page_content, :string
+  attribute :comment, :string
 
   # Direct associations
 
-  belongs_to :profile,
-             foreign_key: :writer_id
+  has_many   :comments
 
   has_many   :bookmarks
-
-  has_many   :analytics
-
-  has_many   :comments
 
   # Indirect associations
 end

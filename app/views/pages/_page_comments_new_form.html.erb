@@ -1,13 +1,5 @@
 <%= form_with(model: @comment, local: true) do |f| %>
 
-  <%= f.hidden_field :page_id, value: @page.id %>
-
-  <div class="form-group">
-    <%= f.label :reader_id %>
-
-    <%= f.collection_select :reader_id, Reader.all, :id, :to_s, {}, class: "form-control" %>
-  </div>
-
   <div class="form-group">
     <%= f.label :reader_name %>
 
@@ -19,6 +11,13 @@
 
     <%= f.text_field :reader_email, class: "form-control" %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, rows: "3", class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :page_id, value: @page.id %>
 
   <%= f.submit "Create comment", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

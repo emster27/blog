@@ -10,12 +10,14 @@
         <%= cl_image_tag @page.hero_image, class: "img-fluid" %>
       </dd>
 
-      <dt>Writer</dt>
-      <dd>
-        <% if @page.profile.present? %>
-          <%= link_to page.profile, page.profile %>
-        <% end %>
-      </dd>
+      <dt>Page name</dt>
+      <dd><%= page.page_name %></dd>
+
+      <dt>Page content</dt>
+      <dd><%= page.page_content %></dd>
+
+      <dt>Comment</dt>
+      <dd><%= page.comment %></dd>
 
     </dl>
 

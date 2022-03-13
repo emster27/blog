@@ -1,5 +1,5 @@
 ActiveAdmin.register Page do
-  permit_params :hero_image, :writer_id
+  permit_params :hero_image, :page_name, :page_content, :comment
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

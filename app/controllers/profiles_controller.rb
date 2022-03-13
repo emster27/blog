@@ -3,13 +3,10 @@ class ProfilesController < ApplicationController
 
   def index
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true).includes(:social_links, :pages,
-                                                   :settings).page(params[:page]).per(10)
+    @profiles = @q.result(distinct: true).includes(:social_links).page(params[:page]).per(10)
   end
 
   def show
-    @setting = Setting.new
-    @page = Page.new
     @social_link = SocialLink.new
   end
 
