@@ -3,13 +3,11 @@ class ReadersController < ApplicationController
 
   def index
     @q = Reader.ransack(params[:q])
-    @readers = @q.result(distinct: true).includes(:comments,
-                                                  :bookmarks).page(params[:page]).per(10)
+    @readers = @q.result(distinct: true).includes(:bookmarks).page(params[:page]).per(10)
   end
 
   def show
     @bookmark = Bookmark.new
-    @comment = Comment.new
   end
 
   def new

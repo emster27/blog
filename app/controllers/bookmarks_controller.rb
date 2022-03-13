@@ -3,8 +3,8 @@ class BookmarksController < ApplicationController
 
   def index
     @q = Bookmark.ransack(params[:q])
-    @bookmarks = @q.result(distinct: true).includes(:page, :reader,
-                                                    :analytic).page(params[:page]).per(10)
+    @bookmarks = @q.result(distinct: true).includes(:page,
+                                                    :reader).page(params[:page]).per(10)
   end
 
   def show; end

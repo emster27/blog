@@ -8,7 +8,6 @@ RSpec.describe Bookmark, type: :model do
   end
 
   describe "InDirect Associations" do
-    it { should have_one(:analytic) }
   end
 
   describe "Validations" do

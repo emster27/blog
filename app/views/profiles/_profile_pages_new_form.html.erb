@@ -8,5 +8,11 @@
 
   <%= f.hidden_field :writer_id, value: @profile.id %>
 
+  <div class="form-group">
+    <%= f.label :page_name %>
+
+    <%= f.text_field :page_name, class: "form-control" %>
+  </div>
+
   <%= f.submit "Create page", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

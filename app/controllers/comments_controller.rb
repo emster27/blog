@@ -3,8 +3,7 @@ class CommentsController < ApplicationController
 
   def index
     @q = Comment.ransack(params[:q])
-    @comments = @q.result(distinct: true).includes(:page,
-                                                   :reader).page(params[:page]).per(10)
+    @comments = @q.result(distinct: true).includes(:page).page(params[:page]).per(10)
   end
 
   def show; end
@@ -55,7 +54,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:page_id, :reader_id, :reader_name,
-                                    :reader_email)
+    params.require(:comment).permit(:reader_name, :reader_email, :comment,
+                                    :page_id)
   end
 end
