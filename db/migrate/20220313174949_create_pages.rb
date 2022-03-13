@@ -3,6 +3,7 @@ class CreatePages < ActiveRecord::Migration[6.0]
     create_table :pages do |t|
       t.string :hero_image
       t.integer :writer_id
+      t.string :page_name
 
       t.timestamps
     end

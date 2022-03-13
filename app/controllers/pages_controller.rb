@@ -3,14 +3,13 @@ class PagesController < ApplicationController
 
   def index
     @q = Page.ransack(params[:q])
-    @pages = @q.result(distinct: true).includes(:comments, :analytics,
-                                                :bookmarks, :profile).page(params[:page]).per(10)
+    @pages = @q.result(distinct: true).includes(:bookmarks, :comments,
+                                                :profile).page(params[:page]).per(10)
   end
 
   def show
-    @bookmark = Bookmark.new
-    @analytic = Analytic.new
     @comment = Comment.new
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -59,6 +58,6 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:hero_image, :writer_id)
+    params.require(:page).permit(:hero_image, :writer_id, :page_name)
   end
 end

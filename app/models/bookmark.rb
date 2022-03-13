@@ -7,10 +7,6 @@ class Bookmark < ApplicationRecord
 
   # Indirect associations
 
-  has_one    :analytic,
-             through: :page,
-             source: :analytics
-
   # Validations
 
   # Scopes

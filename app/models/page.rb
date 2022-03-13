@@ -6,13 +6,10 @@ class Page < ApplicationRecord
   belongs_to :profile,
              foreign_key: "writer_id"
 
-  has_many   :bookmarks,
-             dependent: :destroy
-
-  has_many   :analytics,
-             dependent: :destroy
-
   has_many   :comments,
+             dependent: :destroy
+
+  has_many   :bookmarks,
              dependent: :destroy
 
   # Indirect associations

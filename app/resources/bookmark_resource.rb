@@ -12,6 +12,4 @@ class BookmarkResource < ApplicationResource
   belongs_to :page
 
   # Indirect associations
-
-  has_one    :analytic
 end

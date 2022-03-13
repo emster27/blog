@@ -4,9 +4,6 @@ class Reader < ApplicationRecord
   has_many   :bookmarks,
              dependent: :destroy
 
-  has_many   :comments,
-             dependent: :destroy
-
   # Indirect associations
 
   # Validations
